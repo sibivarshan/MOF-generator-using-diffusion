@@ -1,0 +1,23 @@
+[
+  {
+    "name": "sample_2",
+    "natoms": 44,
+    "volume": 1297.8188600615813,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/nh3_guided_samples/relaxed/sample_2_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_0",
+    "natoms": 66,
+    "volume": 1272.2468645705615,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/nh3_guided_samples/relaxed/sample_0_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_4",
+    "natoms": 142,
+    "volume": 3351.0385528815514,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/nh3_guided_samples/relaxed/sample_4_relaxed.cif",
+    "success": true
+  }
+]
