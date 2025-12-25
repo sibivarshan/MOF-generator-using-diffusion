@@ -1,0 +1,106 @@
+{
+  "random": {
+    "cif_files": [
+      "random_sample_0.cif",
+      "random_sample_2.cif",
+      "random_sample_4.cif"
+    ],
+    "relaxed_files": [
+      "random_sample_0_relaxed.cif",
+      "random_sample_2_relaxed.cif",
+      "random_sample_4_relaxed.cif"
+    ]
+  },
+  "guided": {
+    "cif_files": [
+      "guided_sample_0.cif",
+      "guided_sample_2.cif",
+      "guided_sample_4.cif"
+    ],
+    "relaxed_files": [
+      "guided_sample_0_relaxed.cif",
+      "guided_sample_2_relaxed.cif",
+      "guided_sample_4_relaxed.cif"
+    ]
+  },
+  "target_1.5": {
+    "cif_files": [
+      "target_1.5_sample_0.cif",
+      "target_1.5_sample_1.cif",
+      "target_1.5_sample_3.cif",
+      "target_1.5_sample_4.cif"
+    ],
+    "relaxed_files": [
+      "target_1.5_sample_0_relaxed.cif",
+      "target_1.5_sample_1_relaxed.cif",
+      "target_1.5_sample_3_relaxed.cif",
+      "target_1.5_sample_4_relaxed.cif"
+    ]
+  },
+  "target_5.0": {
+    "cif_files": [
+      "target_5.0_sample_0.cif",
+      "target_5.0_sample_1.cif",
+      "target_5.0_sample_3.cif",
+      "target_5.0_sample_4.cif"
+    ],
+    "relaxed_files": [
+      "target_5.0_sample_0_relaxed.cif",
+      "target_5.0_sample_1_relaxed.cif",
+      "target_5.0_sample_3_relaxed.cif",
+      "target_5.0_sample_4_relaxed.cif"
+    ]
+  },
+  "gradient_2.0_v1": {
+    "cif_files": [
+      "gradient_2.0_v1_sample_0.cif"
+    ],
+    "relaxed_files": [
+      "gradient_2.0_v1_sample_0_relaxed.cif"
+    ]
+  },
+  "gradient_2.0": {
+    "cif_files": [
+      "gradient_2.0_sample_0.cif",
+      "gradient_2.0_sample_1.cif",
+      "gradient_2.0_sample_2.cif",
+      "gradient_2.0_sample_3.cif",
+      "gradient_2.0_sample_4.cif"
+    ],
+    "relaxed_files": [
+      "gradient_2.0_sample_0_relaxed.cif",
+      "gradient_2.0_sample_1_relaxed.cif",
+      "gradient_2.0_sample_2_relaxed.cif",
+      "gradient_2.0_sample_3_relaxed.cif",
+      "gradient_2.0_sample_4_relaxed.cif"
+    ]
+  },
+  "gradient_5.0": {
+    "cif_files": [
+      "gradient_5.0_sample_2.cif",
+      "gradient_5.0_sample_3.cif",
+      "gradient_5.0_sample_4.cif"
+    ],
+    "relaxed_files": [
+      "gradient_5.0_sample_2_relaxed.cif",
+      "gradient_5.0_sample_3_relaxed.cif",
+      "gradient_5.0_sample_4_relaxed.cif"
+    ]
+  },
+  "hybrid_1.0": {
+    "cif_files": [
+      "hybrid_1.0_sample_0.cif",
+      "hybrid_1.0_sample_1.cif",
+      "hybrid_1.0_sample_2.cif",
+      "hybrid_1.0_sample_3.cif",
+      "hybrid_1.0_sample_4.cif"
+    ],
+    "relaxed_files": [
+      "hybrid_1.0_sample_0_relaxed.cif",
+      "hybrid_1.0_sample_1_relaxed.cif",
+      "hybrid_1.0_sample_2_relaxed.cif",
+      "hybrid_1.0_sample_3_relaxed.cif",
+      "hybrid_1.0_sample_4_relaxed.cif"
+    ]
+  }
+}

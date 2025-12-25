@@ -1,0 +1,9 @@
+[
+  {
+    "name": "sample_0",
+    "natoms": 132,
+    "volume": 7530.003275361665,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/nh3_gradient_2.0/relaxed/sample_0_relaxed.cif",
+    "success": true
+  }
+]
