@@ -1,5 +1,21 @@
+# CIF file from MOFDiff structure generation
+# Relaxed using LAMMPS UFF force field
+# Generation date: 2025-12-26 06:08:15
+# Note: Computationally generated structure
+#
 # generated using pymatgen
 data_Zn2H38C52(N4O5)3
+_chemical_name_common   'Zinc-based MOF (computationally generated)'
+_chemical_name_systematic   ?
+_audit_creation_method   'MOFDiff + LAMMPS UFF relaxation'
+_chemical_name_systematic   ?
+_audit_creation_method   'MOFDiff + LAMMPS UFF relaxation'
+_chemical_name_systematic   ?
+_audit_creation_method   'MOFDiff + LAMMPS UFF relaxation'
+_chemical_name_systematic   ?
+_audit_creation_method   'MOFDiff + LAMMPS UFF relaxation'
+_chemical_name_systematic   ?
+_audit_creation_method   'MOFDiff + LAMMPS UFF relaxation'
 _symmetry_space_group_name_H-M   'P 1'
 _cell_length_a   40.87596515
 _cell_length_b   40.46288034
@@ -24,6 +40,7 @@ loop_
  _atom_site_fract_y
  _atom_site_fract_z
  _atom_site_occupancy
+ _atom_site_U_iso_or_equiv
   H  H0  1  0.10078900  0.01182100  0.17927000  1
   N  N1  1  0.08171330  0.02423250  0.15644400  1
   H  H2  1  0.00359972  0.02321810  0.08199240  1
