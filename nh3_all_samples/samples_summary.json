@@ -1,106 +1,133 @@
 {
-  "random": {
-    "cif_files": [
-      "random_sample_0.cif",
-      "random_sample_2.cif",
-      "random_sample_4.cif"
-    ],
-    "relaxed_files": [
-      "random_sample_0_relaxed.cif",
-      "random_sample_2_relaxed.cif",
-      "random_sample_4_relaxed.cif"
-    ]
-  },
-  "guided": {
-    "cif_files": [
-      "guided_sample_0.cif",
-      "guided_sample_2.cif",
-      "guided_sample_4.cif"
-    ],
-    "relaxed_files": [
-      "guided_sample_0_relaxed.cif",
-      "guided_sample_2_relaxed.cif",
-      "guided_sample_4_relaxed.cif"
-    ]
-  },
-  "target_1.5": {
-    "cif_files": [
-      "target_1.5_sample_0.cif",
-      "target_1.5_sample_1.cif",
-      "target_1.5_sample_3.cif",
-      "target_1.5_sample_4.cif"
-    ],
-    "relaxed_files": [
-      "target_1.5_sample_0_relaxed.cif",
-      "target_1.5_sample_1_relaxed.cif",
-      "target_1.5_sample_3_relaxed.cif",
-      "target_1.5_sample_4_relaxed.cif"
-    ]
-  },
-  "target_5.0": {
-    "cif_files": [
-      "target_5.0_sample_0.cif",
-      "target_5.0_sample_1.cif",
-      "target_5.0_sample_3.cif",
-      "target_5.0_sample_4.cif"
-    ],
-    "relaxed_files": [
-      "target_5.0_sample_0_relaxed.cif",
-      "target_5.0_sample_1_relaxed.cif",
-      "target_5.0_sample_3_relaxed.cif",
-      "target_5.0_sample_4_relaxed.cif"
-    ]
-  },
-  "gradient_2.0_v1": {
-    "cif_files": [
-      "gradient_2.0_v1_sample_0.cif"
-    ],
-    "relaxed_files": [
-      "gradient_2.0_v1_sample_0_relaxed.cif"
-    ]
-  },
-  "gradient_2.0": {
-    "cif_files": [
-      "gradient_2.0_sample_0.cif",
-      "gradient_2.0_sample_1.cif",
-      "gradient_2.0_sample_2.cif",
-      "gradient_2.0_sample_3.cif",
-      "gradient_2.0_sample_4.cif"
-    ],
-    "relaxed_files": [
-      "gradient_2.0_sample_0_relaxed.cif",
-      "gradient_2.0_sample_1_relaxed.cif",
-      "gradient_2.0_sample_2_relaxed.cif",
-      "gradient_2.0_sample_3_relaxed.cif",
-      "gradient_2.0_sample_4_relaxed.cif"
-    ]
-  },
-  "gradient_5.0": {
-    "cif_files": [
-      "gradient_5.0_sample_2.cif",
-      "gradient_5.0_sample_3.cif",
-      "gradient_5.0_sample_4.cif"
-    ],
-    "relaxed_files": [
-      "gradient_5.0_sample_2_relaxed.cif",
-      "gradient_5.0_sample_3_relaxed.cif",
-      "gradient_5.0_sample_4_relaxed.cif"
-    ]
-  },
-  "hybrid_1.0": {
-    "cif_files": [
-      "hybrid_1.0_sample_0.cif",
-      "hybrid_1.0_sample_1.cif",
-      "hybrid_1.0_sample_2.cif",
-      "hybrid_1.0_sample_3.cif",
-      "hybrid_1.0_sample_4.cif"
-    ],
-    "relaxed_files": [
-      "hybrid_1.0_sample_0_relaxed.cif",
-      "hybrid_1.0_sample_1_relaxed.cif",
-      "hybrid_1.0_sample_2_relaxed.cif",
-      "hybrid_1.0_sample_3_relaxed.cif",
-      "hybrid_1.0_sample_4_relaxed.cif"
-    ]
-  }
+  "generation_method": "MOFDiff with quality assembly (5 rounds, 300 iter)",
+  "total_samples": 7,
+  "structures": [
+    {
+      "name": "sample_1",
+      "n_atoms": 66,
+      "volume": 1897.1,
+      "lattice_a": 11.4,
+      "lattice_b": 12.1,
+      "lattice_c": 13.9,
+      "density": 0.0348,
+      "elements": [
+        "C",
+        "H",
+        "Zn",
+        "O",
+        "N"
+      ],
+      "cif_path": "cif/sample_1.cif",
+      "relaxed_path": "relaxed/sample_1.cif"
+    },
+    {
+      "name": "sample_2",
+      "n_atoms": 86,
+      "volume": 2653.7,
+      "lattice_a": 12.5,
+      "lattice_b": 13.8,
+      "lattice_c": 15.9,
+      "density": 0.0324,
+      "elements": [
+        "C",
+        "H",
+        "I",
+        "Zn",
+        "O",
+        "N"
+      ],
+      "cif_path": "cif/sample_2.cif",
+      "relaxed_path": "relaxed/sample_2.cif"
+    },
+    {
+      "name": "sample_3",
+      "n_atoms": 76,
+      "volume": 2302.1,
+      "lattice_a": 12.1,
+      "lattice_b": 13.7,
+      "lattice_c": 14.1,
+      "density": 0.033,
+      "elements": [
+        "C",
+        "H",
+        "Cu",
+        "O",
+        "N"
+      ],
+      "cif_path": "cif/sample_3.cif",
+      "relaxed_path": "relaxed/sample_3.cif"
+    },
+    {
+      "name": "sample_4",
+      "n_atoms": 70,
+      "volume": 1408.9,
+      "lattice_a": 7.7,
+      "lattice_b": 12.8,
+      "lattice_c": 14.2,
+      "density": 0.0497,
+      "elements": [
+        "C",
+        "H",
+        "Zn",
+        "O",
+        "N"
+      ],
+      "cif_path": "cif/sample_4.cif",
+      "relaxed_path": "relaxed/sample_4.cif"
+    },
+    {
+      "name": "sample_5",
+      "n_atoms": 2142,
+      "volume": 47221.8,
+      "lattice_a": 40.9,
+      "lattice_b": 40.5,
+      "lattice_c": 31.3,
+      "density": 0.0454,
+      "elements": [
+        "C",
+        "H",
+        "Zn",
+        "O",
+        "N"
+      ],
+      "cif_path": "cif/sample_5.cif",
+      "relaxed_path": "relaxed/sample_5.cif"
+    },
+    {
+      "name": "sample_7",
+      "n_atoms": 1392,
+      "volume": 45952.9,
+      "lattice_a": 34.0,
+      "lattice_b": 34.1,
+      "lattice_c": 41.5,
+      "density": 0.0303,
+      "elements": [
+        "C",
+        "H",
+        "Cu",
+        "O",
+        "N"
+      ],
+      "cif_path": "cif/sample_7.cif",
+      "relaxed_path": "relaxed/sample_7.cif"
+    },
+    {
+      "name": "sample_8",
+      "n_atoms": 40,
+      "volume": 3509.4,
+      "lattice_a": 12.3,
+      "lattice_b": 16.5,
+      "lattice_c": 17.4,
+      "density": 0.0114,
+      "elements": [
+        "C",
+        "I",
+        "Zn",
+        "Br",
+        "O"
+      ],
+      "cif_path": "cif/sample_8.cif",
+      "relaxed_path": "relaxed/sample_8.cif"
+    }
+  ]
 }
