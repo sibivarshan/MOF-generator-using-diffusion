@@ -161,3 +161,24 @@ cython_debug/
 
 # pretrained models folder
 pretrained/
+
+# GCMC test directories
+gcmc_test/
+gcmc_test2/
+gcmc_test3/
+gcmc_verification/
+gcmc_results/
+
+# Large data files
+*.zip
+data/
+raw_nh3_core/
+samples001/
+
+# Hydra outputs
+hydra_jobs/
+logs/
+wandb/
+
+# Generated samples (too large for git)
+nh3_all_samples/

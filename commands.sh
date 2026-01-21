@@ -102,7 +102,69 @@ conda run -n mofdiff-gpu python scripts/predict_nh3.py
 conda run -n mofdiff-gpu python scripts/show_nh3_results.py
 
 # ------------------------------------------------------------------------------
-# 7. SIMPLE RELAXATION (Standalone UFF relaxation)
+# 7. GCMC SIMULATIONS FOR NH3 UPTAKE
+# ------------------------------------------------------------------------------
+
+# IMPORTANT: GCMC simulations require RASPA2 and eGULP to be installed.
+# Set the following environment variables before running:
+#   export RASPA_PATH=/path/to/raspa
+#   export RASPA_SIM_PATH=/path/to/raspa/bin/simulate
+#   export ZEO_PATH=/path/to/zeo++
+#   export EGULP_PATH=/path/to/egulp
+#   export EGULP_PARAMETER_PATH=/path/to/egulp/parameters
+
+# Basic NH3 uptake simulation (single pressure point at 1 bar, 298 K)
+# Calculates: NH3 uptake in mol/kg, mmol/g, mg/g and heat of adsorption
+conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_nh3_screen.py \
+    --input nh3_all_samples/cif \
+    --simulation_type uptake \
+    --temperature 298 \
+    --pressure 101325 \
+    --ncpu 24
+
+# NH3 working capacity (adsorption vs desorption)
+# Default: Adsorption at 298K/1bar, Desorption at 373K/0.1bar
+conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_nh3_screen.py \
+    --input nh3_all_samples/cif \
+    --simulation_type working_capacity \
+    --temperature 298 \
+    --pressure 101325 \
+    --desorption_temperature 373 \
+    --desorption_pressure 10000 \
+    --ncpu 24
+
+# NH3 adsorption isotherm (multiple pressure points)
+# Generates uptake data at different pressures for isotherm plotting
+conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_nh3_screen.py \
+    --input nh3_all_samples/cif \
+    --simulation_type isotherm \
+    --temperature 298 \
+    --pressures "100,500,1000,5000,10000,50000,101325" \
+    --ncpu 24
+
+# Run on relaxed structures (often more accurate)
+conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_nh3_screen.py \
+    --input nh3_all_samples/relaxed \
+    --simulation_type uptake \
+    --temperature 298 \
+    --pressure 101325 \
+    --ncpu 24
+
+# Low pressure NH3 uptake (for low concentration applications)
+conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_nh3_screen.py \
+    --input nh3_all_samples/cif \
+    --simulation_type uptake \
+    --temperature 298 \
+    --pressure 1000 \
+    --output_name nh3_uptake_lowP_results.json \
+    --ncpu 24
+
+# Original CO2/N2 vacuum swing adsorption screening (for reference)
+conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_screen.py \
+    --input nh3_all_samples/cif
+
+# ------------------------------------------------------------------------------
+# 8. SIMPLE RELAXATION (Standalone UFF relaxation)
 # ------------------------------------------------------------------------------
 
 # Relax a single CIF file or directory of CIF files
@@ -111,7 +173,7 @@ conda run -n mofdiff-gpu python scripts/simple_relax.py \
     --output_dir path/to/output
 
 # ------------------------------------------------------------------------------
-# 8. BATCH GENERATION EXAMPLE
+# 9. BATCH GENERATION EXAMPLE
 # ------------------------------------------------------------------------------
 
 # Generate samples to a specific folder with both normal and NH3-targeted
@@ -147,7 +209,7 @@ conda run -n mofdiff-gpu python scripts/sample_nh3_gradient.py \
     --relax
 
 # ------------------------------------------------------------------------------
-# 9. USEFUL OPTIONS
+# 10. USEFUL OPTIONS
 # ------------------------------------------------------------------------------
 
 # Low memory mode (for GPUs with limited VRAM)
@@ -163,7 +225,7 @@ conda run -n mofdiff-gpu python scripts/sample_nh3_gradient.py \
 # Add --batch_size 4
 
 # ------------------------------------------------------------------------------
-# 10. ENVIRONMENT SETUP
+# 11. ENVIRONMENT SETUP
 # ------------------------------------------------------------------------------
 
 # Create conda environment
@@ -174,6 +236,114 @@ conda run -n mofdiff-gpu python scripts/sample_nh3_gradient.py \
 
 # Install package in development mode
 # pip install -e .
+
+# ------------------------------------------------------------------------------
+# 12. GCMC ENVIRONMENT SETUP (RASPA2 + Charge Equilibration)
+# ------------------------------------------------------------------------------
+
+# ============================================================================
+# GCMC IS NOW SET UP AND READY TO USE!
+# ============================================================================
+# RASPA2 is installed at: /home/sibivarshan_m7/gcmc_tools/raspa_install
+# Charge equilibration uses OpenBabel's EQeq method (no external deps needed)
+#
+# Environment variables are already added to ~/.bashrc:
+#   RASPA_PATH=/home/sibivarshan_m7/gcmc_tools/raspa_install
+#   RASPA_SIM_PATH=/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate
+#   RASPA_DIR=/home/sibivarshan_m7/gcmc_tools/raspa_install
+#
+# Force field: NH3_GCMC (custom force field with UFF parameters + NH3 TraPPE)
+# Molecule definitions: NH3_GCMC (NH3 with Rizzo/Jorgensen parameters)
+
+# Verify GCMC setup:
+source ~/.bashrc && conda run -n mofdiff-gpu python -c "
+from mofdiff.gcmc import gcmc_wrapper
+print('RASPA_PATH:', gcmc_wrapper.raspa_path)
+print('RASPA_SIM_PATH:', gcmc_wrapper.raspa_sim_path)
+print('RASPA_DIR:', gcmc_wrapper.raspa_dir)
+print('GCMC setup OK!')
+"
+
+# ------------------------------------------------------------------------------
+# 13. NH3 GCMC SIMULATIONS (Using the wrapper functions)
+# ------------------------------------------------------------------------------
+
+# Run single NH3 uptake simulation
+source ~/.bashrc && conda run -n mofdiff-gpu python -c "
+import os
+os.environ['RASPA_PATH'] = '/home/sibivarshan_m7/gcmc_tools/raspa_install'
+os.environ['RASPA_SIM_PATH'] = '/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate'
+os.environ['RASPA_DIR'] = '/home/sibivarshan_m7/gcmc_tools/raspa_install'
+
+from mofdiff.gcmc.gcmc_wrapper import fix_cif_for_raspa
+from mofdiff.gcmc.simulation import nh3_uptake_simulation
+
+# Fix CIF for RASPA compatibility
+cif_path = 'nh3_all_samples/cif/sample_1.cif'
+fixed_cif = 'gcmc_results/sample_1_fixed.cif'
+import os; os.makedirs('gcmc_results', exist_ok=True)
+fix_cif_for_raspa(cif_path, fixed_cif)
+
+# Run NH3 GCMC simulation
+result = nh3_uptake_simulation(
+    fixed_cif,
+    calc_charges=False,  # Set True for more accurate results
+    rundir='./gcmc_results',
+    temperature=298,  # K
+    pressure=101325   # Pa (1 bar)
+)
+print('NH3 uptake:', result['NH3_uptake_mol_kg'], 'mol/kg')
+print('NH3 uptake:', result['NH3_uptake_mg_g'], 'mg/g')
+"
+
+# Run batch NH3 GCMC screening on all samples
+source ~/.bashrc && conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_nh3_screen.py \
+    --cif_dir nh3_all_samples/cif \
+    --output_dir gcmc_results \
+    --mode uptake \
+    --temperature 298 \
+    --pressure 101325 \
+    --n_workers 4
+
+# Run NH3 working capacity calculation (adsorption/desorption cycle)
+source ~/.bashrc && conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_nh3_screen.py \
+    --cif_dir nh3_all_samples/cif \
+    --output_dir gcmc_results \
+    --mode working_capacity \
+    --ads_temp 298 \
+    --ads_pressure 101325 \
+    --des_temp 373 \
+    --des_pressure 10000 \
+    --n_workers 4
+
+# Run NH3 adsorption isotherm (multiple pressure points)
+source ~/.bashrc && conda run -n mofdiff-gpu python mofdiff/scripts/gcmc_nh3_screen.py \
+    --cif_dir nh3_all_samples/cif \
+    --output_dir gcmc_results \
+    --mode isotherm \
+    --temperature 298 \
+    --n_workers 4
+
+# ============================================================================
+# Manual installation instructions (already done on this system):
+# ============================================================================
+# RASPA2 Installation:
+# cd ~/gcmc_tools
+# git clone https://github.com/iRASPA/RASPA2.git
+# cd RASPA2
+# conda install -c conda-forge autoconf automake libtool
+# aclocal && autoreconf -i
+# ./configure --prefix=$HOME/gcmc_tools/raspa_install
+# make -j4 && make install
+
+# Charge equilibration options:
+# 1. EQeq via OpenBabel (RECOMMENDED - already available in mofdiff-gpu env)
+#    - No additional installation needed
+#    - Uses: gcmc_wrapper.calculate_eqeq_charges() or charge_method="eqeq"
+#
+# 2. MEPO-Qeq via eGULP (optional, for higher accuracy)
+#    - Not currently available, falls back to EQeq
+#    - Uses: charge_method="mepo"
 
 # ------------------------------------------------------------------------------
 # END OF COMMANDS
