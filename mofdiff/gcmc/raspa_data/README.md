@@ -10,7 +10,7 @@ raspa_data/
 │   └── NH3_GCMC/
 │       ├── force_field.def          # Main force field definition
 │       ├── force_field_mixing_rules.def  # LJ parameters and mixing rules
-│       └── pseudo_atoms.def         # Atom type definitions with charges
+│       └── pseudo_atoms.def         # Atom type definitions with masses
 └── molecules/
     └── NH3_GCMC/
         └── NH3.def                  # NH3 molecule definition
@@ -34,15 +34,17 @@ cp -r molecules/NH3_GCMC $RASPA_PATH/share/raspa/molecules/
 - H_nh3: ε = 0 K, σ = 0 Å, charge = +0.34 e
 
 ### Framework Atoms
-- Uses UFF (Universal Force Field) parameters with wildcard matching
-- Wildcards (e.g., `Co_`, `Zn_`) match numbered atom labels (Co1, Zn2, etc.)
+- Uses UFF (Universal Force Field) parameters
+- **Plain element names** (Ce, Zn, Cu, etc.) match standard CIF labels (Ce1, Zn2, etc.)
+- Underscore wildcards (Ce_, Zn_) provided as fallback for alternative formats
+- 30 framework atom types defined including lanthanides (Ce, La)
 
 ## Notes
 
 1. The force field uses Lorentz-Berthelot mixing rules
-2. Tail corrections are disabled (`no`)
+2. **Tail corrections are ENABLED** (`yes`) for accurate uptake values
 3. Potential is shifted (not truncated)
-4. Atom matching uses underscore wildcards for numbered labels
+4. CIF charges are read from files (set `UseChargesFromCIFFile yes` in simulation)
 
 ## References
 

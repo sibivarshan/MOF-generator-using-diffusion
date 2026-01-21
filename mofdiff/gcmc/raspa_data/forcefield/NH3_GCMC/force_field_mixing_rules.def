@@ -1,10 +1,46 @@
 # general rule for shifted vs truncated
 shifted
 # general rule tailcorrections
-no
+yes
 # number of defined interactions
-46
+60
 # type interaction, parameters.    IMPORTANT: define shortest matches first, so that more specific ones overwrites these
+# Plain element names FIRST (match Ce1, Zn1, Cu1, H1, C1, etc. from CIF files)
+# These are crucial for matching atom labels in standard CIF format
+Ce             lennard-jones     6.542    3.556
+La             lennard-jones     8.55     3.14
+Zn             lennard-jones    62.3992   2.46155
+Cu             lennard-jones     2.5161   3.11369
+Fe             lennard-jones     6.54185  2.5943
+Co             lennard-jones     7.04507  2.55866
+Ni             lennard-jones     7.54829  2.52481
+Mn             lennard-jones     6.54185  2.63795
+Cr             lennard-jones     7.54829  2.69319
+Ti             lennard-jones     8.55473  2.8286
+V              lennard-jones     8.05151  2.80099
+Zr             lennard-jones    34.7221   2.78317
+Mg             lennard-jones    55.8574   2.69141
+Ca             lennard-jones   119.766    3.02816
+Ba             lennard-jones   183.172    3.29899
+Na             lennard-jones    15.0966   2.65755
+K              lennard-jones    17.6126   3.39622
+Be             lennard-jones    42.7736   2.44552
+Ga             lennard-jones   208.836    3.90481
+Sc             lennard-jones     9.56117  2.93551
+Al             lennard-jones   155.998    3.91105
+Si             lennard-jones   155.998    3.80414
+I              lennard-jones   256.634    4.009
+Br             lennard-jones   186.191    3.51905
+Cl             lennard-jones   142.562    3.51932
+F              lennard-jones    36.4834   3.0932
+P              lennard-jones   161.03     3.69723
+S              lennard-jones   173.107    3.59032
+B              lennard-jones    47.8058   3.58141
+O              lennard-jones    48.1581   3.03315
+N              lennard-jones    38.9492   3.26256
+C              lennard-jones    47.8562   3.47299
+H              lennard-jones     7.64893  2.84642
+# Underscore wildcard patterns (for numbered labels like O_1, C_carb, etc.)
 O_             lennard-jones    48.1581   3.03315
 N_             lennard-jones    38.9492   3.26256
 C_             lennard-jones    47.8562   3.47299
@@ -30,13 +66,11 @@ Zr_            lennard-jones    34.7221   2.78317
 Mg_            lennard-jones    55.8574   2.69141
 Ca_            lennard-jones   119.766    3.02816
 Ce_            lennard-jones     6.542    3.556
+La_            lennard-jones     8.55     3.14
 Ba_            lennard-jones   183.172    3.29899
 Na_            lennard-jones    15.0966   2.65755
 K_             lennard-jones    17.6126   3.39622
-La_            lennard-jones     8.55     3.14
-Be_            lennard-jones    42.7736   2.44552
-Ga_            lennard-jones   208.836    3.90481
-Sc_            lennard-jones     9.56117  2.93551
+# Gas molecules
 He             lennard-jones    10.9      2.64
 Ar             lennard-jones   119.8      3.40
 CH4            lennard-jones   148.0      3.73
@@ -46,10 +80,5 @@ N_n2           lennard-jones    36.0      3.31
 N_com          none
 N_nh3          lennard-jones   185.0      3.42
 H_nh3          lennard-jones     0.0      0.0
-O              lennard-jones    48.1581   3.03315
-C              lennard-jones    47.8562   3.47299
-N              lennard-jones    38.9492   3.26256
-H              lennard-jones     7.64893  2.84642
-Co             lennard-jones     7.04507  2.55866
 # general mixing rule for Lennard-Jones
 Lorentz-Berthelot
