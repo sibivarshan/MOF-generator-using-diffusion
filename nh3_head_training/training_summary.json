@@ -1,0 +1,65 @@
+{
+  "best_config": "robust_medium_mse",
+  "test_mae": 1.4217708110809326,
+  "test_spearman": 0.22449633699633695,
+  "test_r2": 0.002212203726753015,
+  "all_results": [
+    {
+      "config": "robust_small_mse",
+      "mae_mean": 1.2342344522476196,
+      "mae_std": 0.19227565824985504,
+      "spearman_mean": 0.08093083387201035,
+      "spearman_std": 0.0988291957041462
+    },
+    {
+      "config": "robust_small_combined",
+      "mae_mean": 1.2414138317108154,
+      "mae_std": 0.17611955106258392,
+      "spearman_mean": 0.09175510204081631,
+      "spearman_std": 0.07146186658674256
+    },
+    {
+      "config": "robust_medium_mse",
+      "mae_mean": 1.230668306350708,
+      "mae_std": 0.1703394502401352,
+      "spearman_mean": 0.17550466340382304,
+      "spearman_std": 0.1591390406641496
+    },
+    {
+      "config": "robust_medium_combined",
+      "mae_mean": 1.2511132955551147,
+      "mae_std": 0.19024276733398438,
+      "spearman_mean": 0.07001865361529226,
+      "spearman_std": 0.12922125155859013
+    },
+    {
+      "config": "gradient_guided_mse",
+      "mae_mean": 1.2455098628997803,
+      "mae_std": 0.18711265921592712,
+      "spearman_mean": 0.06473764890571612,
+      "spearman_std": 0.04627891485237406
+    },
+    {
+      "config": "gradient_guided_combined",
+      "mae_mean": 1.2337064743041992,
+      "mae_std": 0.1984671950340271,
+      "spearman_mean": 0.15294154584910885,
+      "spearman_std": 0.09518306123476959
+    },
+    {
+      "config": "ensemble_mse",
+      "mae_mean": 1.2176048755645752,
+      "mae_std": 0.1856725513935089,
+      "spearman_mean": 0.1145243328100471,
+      "spearman_std": 0.13371658682314058
+    },
+    {
+      "config": "ensemble_combined",
+      "mae_mean": 1.2256004810333252,
+      "mae_std": 0.18616481125354767,
+      "spearman_mean": 0.12939588142949487,
+      "spearman_std": 0.07159046385837446
+    }
+  ],
+  "timestamp": "2026-01-30T06:53:58.499584"
+}
