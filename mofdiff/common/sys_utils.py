@@ -122,10 +122,10 @@ load_envs()
 
 # Set the cwd to the project root
 PROJECT_ROOT: Path = Path(get_env("PROJECT_ROOT"))
-ZEO_PATH: Path = Path(get_env("ZEO_PATH"))
-EGULP_PATH: Path = Path(get_env("EGULP_PATH"))
-EGULP_PARAMETER_PATH: Path = Path(get_env("EGULP_PARAMETER_PATH"))
-RASPA_PATH: Path = Path(get_env("RASPA_PATH"))
+ZEO_PATH: Optional[Path] = Path(get_env("ZEO_PATH", "")) if get_env("ZEO_PATH", "") else None
+EGULP_PATH: Optional[Path] = Path(get_env("EGULP_PATH", "")) if get_env("EGULP_PATH", "") else None
+EGULP_PARAMETER_PATH: Optional[Path] = Path(get_env("EGULP_PARAMETER_PATH", "")) if get_env("EGULP_PARAMETER_PATH", "") else None
+RASPA_PATH: Optional[Path] = Path(get_env("RASPA_PATH", "")) if get_env("RASPA_PATH", "") else None
 DATASET_DIR: Path = Path(get_env("DATASET_DIR"))
 if PROJECT_ROOT.exists():
     os.chdir(PROJECT_ROOT)

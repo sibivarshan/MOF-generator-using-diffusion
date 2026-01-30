@@ -205,18 +205,23 @@ def extract_raspa_output_nh3(raspa_output):
 def nh3_uptake_simulation(cif_file, calc_charges=True, rundir='./temp', 
                           rewrite_raspa_input=False,
                           temperature=298, pressure=101325,
-                          charge_method="eqeq"):
+                          charge_method="eqeq",
+                          equilibration_cycles=10000,
+                          production_cycles=10000):
     """
     Run GCMC simulation to calculate NH3 uptake for a MOF structure.
     
     Args:
         cif_file: Path to the CIF file of the MOF structure
-        calc_charges: Whether to calculate charges (default: True)
+        calc_charges: Whether to calculate charges (default: True). 
+                      If False, uses existing charges from CIF file (e.g., DDEC6 charges)
         rundir: Directory for intermediate files
         rewrite_raspa_input: Whether to rewrite RASPA input files
         temperature: Simulation temperature in K (default: 298 K)
         pressure: Simulation pressure in Pa (default: 101325 Pa = 1 bar)
         charge_method: Charge equilibration method ("eqeq", "mepo", "gasteiger")
+        equilibration_cycles: Number of equilibration cycles (default: 10000)
+        production_cycles: Number of production cycles (default: 10000)
     
     Returns:
         Dictionary with NH3 uptake results
@@ -238,10 +243,16 @@ def nh3_uptake_simulation(cif_file, calc_charges=True, rundir='./temp',
     if calc_charges:
         gcmc_wrapper.calculate_charges(simulation, method=charge_method)
     
-    # Run GCMC simulation
+    # Use charges from CIF file - always true if we calculated charges or if pre-computed charges exist
+    use_charges_from_cif = True  # NH3 simulations need charges for electrostatic interactions
+    
+    # Run GCMC simulation with appropriate charge settings
     gcmc_wrapper.run_gcmc_simulation(
         simulation,
         rewrite_raspa_input=rewrite_raspa_input,
+        use_charges=use_charges_from_cif,
+        equilibration_cycles=equilibration_cycles,
+        production_cycles=production_cycles,
     )
     
     # Extract results

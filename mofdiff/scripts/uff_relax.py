@@ -6,13 +6,26 @@ import json
 from pymatgen.io.cif import CifWriter
 
 from mofdiff.common.relaxation import lammps_relax
-from mofdiff.common.mof_utils import save_mofid, mof_properties
-from mofid.id_constructor import extract_topology
+
+# Optional imports for Zeo++ and MOFid
+try:
+    from mofdiff.common.mof_utils import save_mofid, mof_properties
+    HAS_ZEO = True
+except ImportError:
+    HAS_ZEO = False
+    print("Warning: Zeo++ utilities not available. Skipping structural property calculations.")
+
+try:
+    from mofid.id_constructor import extract_topology
+    HAS_MOFID = True
+except ImportError:
+    HAS_MOFID = False
+    print("Warning: MOFid not installed. Skipping MOFid extraction.")
 
 from p_tqdm import p_umap
 
 
-def main(input_dir, max_natoms=2000, get_mofid=True, ncpu=96):
+def main(input_dir, max_natoms=2000, get_mofid=True, get_zeo=True, ncpu=96):
     """
     max_natoms: maximum number of atoms in a MOF primitive cell to run zeo++/mofid.
     """
@@ -42,29 +55,34 @@ def main(input_dir, max_natoms=2000, get_mofid=True, ncpu=96):
     with open(save_dir / "relax_info.json", "w") as f:
         json.dump(relax_infos, f)
 
-    # ZEO++ properties and validity checks
-    zeo_dir = Path(input_dir) / "zeo"
-    zeo_dir.mkdir(exist_ok=True)
-    relaxed_files = [
-        info["path"] for info in relax_infos if info["natoms"] <= max_natoms
-    ]
+    # ZEO++ properties and validity checks (optional)
+    if get_zeo and HAS_ZEO:
+        zeo_dir = Path(input_dir) / "zeo"
+        zeo_dir.mkdir(exist_ok=True)
+        relaxed_files = [
+            info["path"] for info in relax_infos if info["natoms"] <= max_natoms
+        ]
 
-    zeo_props = p_umap(
-        partial(mof_properties, zeo_store_path=zeo_dir), relaxed_files, num_cpus=64
-    )
-    zeo_props = [x for x in zeo_props if x is not None]
-    with open(Path(input_dir) / "zeo_props_relax.json", "w") as f:
-        json.dump(zeo_props, f)
+        zeo_props = p_umap(
+            partial(mof_properties, zeo_store_path=zeo_dir), relaxed_files, num_cpus=64
+        )
+        zeo_props = [x for x in zeo_props if x is not None]
+        with open(Path(input_dir) / "zeo_props_relax.json", "w") as f:
+            json.dump(zeo_props, f)
 
-    valid_mof_paths = []
-    for prop in zeo_props:
-        if prop["all_check"]:
-            valid_mof_paths.append(prop["path"])
-    with open(Path(input_dir) / "valid_mof_paths.json", "w") as f:
-        json.dump(valid_mof_paths, f)
+        valid_mof_paths = []
+        for prop in zeo_props:
+            if prop["all_check"]:
+                valid_mof_paths.append(prop["path"])
+        with open(Path(input_dir) / "valid_mof_paths.json", "w") as f:
+            json.dump(valid_mof_paths, f)
+    else:
+        if not HAS_ZEO:
+            print("Skipping Zeo++ property calculations (not installed)")
+        valid_mof_paths = [info["path"] for info in relax_infos]
 
-    # MOFid
-    if get_mofid:
+    # MOFid (optional)
+    if get_mofid and HAS_MOFID:
         mofid_dir = Path(input_dir) / "mofid"
         mofid_dir.mkdir(exist_ok=True)
 
@@ -87,10 +105,14 @@ def main(input_dir, max_natoms=2000, get_mofid=True, ncpu=96):
         mofid_success_uids = p_umap(process_one, valid_sample_path, num_cpus=ncpu)
         with open(Path(input_dir) / "mofid_success_uids.json", "w") as f:
             json.dump(mofid_success_uids, f)
+    elif get_mofid and not HAS_MOFID:
+        print("Skipping MOFid extraction (not installed)")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=str)
+    parser.add_argument("--no-zeo", action="store_true", help="Skip Zeo++ property calculations")
+    parser.add_argument("--no-mofid", action="store_true", help="Skip MOFid extraction")
     args = parser.parse_args()
-    main(args.input)
+    main(args.input, get_mofid=not args.no_mofid, get_zeo=not args.no_zeo)

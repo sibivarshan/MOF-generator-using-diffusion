@@ -171,12 +171,20 @@ def dump_to_structure(dump_file, data_file):
         masses = masses.split("\n")
 
     # lookup the atomic symbol associated with each atomic mass
-    element_symbols = np.array(
-        [element.symbol for element in mendeleev.elements.get_all_elements()]
-    )
-    element_mass = np.array(
-        [element.mass for element in mendeleev.elements.get_all_elements()]
-    )
+    # Handle different mendeleev API versions
+    try:
+        from mendeleev import get_all_elements
+        all_elements = get_all_elements()
+    except ImportError:
+        try:
+            all_elements = mendeleev.elements.get_all_elements()
+        except AttributeError:
+            # Fallback for older versions
+            from mendeleev import element
+            all_elements = [element(i) for i in range(1, 119)]
+    
+    element_symbols = np.array([el.symbol for el in all_elements])
+    element_mass = np.array([el.mass for el in all_elements])
 
     identifier_to_symbol = dict()
     for atom in masses:

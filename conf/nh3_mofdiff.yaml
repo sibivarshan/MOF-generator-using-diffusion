@@ -1,0 +1,22 @@
+# MOFDiff for NH3 config
+defaults:
+  - data: nh3_mof
+  - model: default
+  - optim: default
+  - train: default
+  - logging: default
+
+config_for: mof
+
+core:
+  version: 0.0.1
+  tags:
+    - ${now:%Y-%m-%d}
+
+expname: nh3_mofdiff
+hydra:
+  run:
+    dir: ${oc.env:HYDRA_JOBS}/nh3/${expname}
+  sweep:
+    dir: ${oc.env:HYDRA_JOBS}/${expname}
+    subdir: ${hydra.job.override_dirname}

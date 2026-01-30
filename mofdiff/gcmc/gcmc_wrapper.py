@@ -266,31 +266,37 @@ def calculate_eqeq_charges(simulation, charge_method="eqeq"):
         # Parse the CIF and reconstruct with charges
         lines = cif_content.split('\n')
         new_lines = []
-        in_atom_site = False
-        atom_site_headers = []
+        in_atom_site_headers = False
+        added_charge_header = False
         atom_idx = 0
         
         for line in lines:
             if line.strip().startswith('_atom_site_'):
-                in_atom_site = True
-                atom_site_headers.append(line.strip())
+                in_atom_site_headers = True
                 new_lines.append(line)
-            elif in_atom_site and line.strip().startswith('_'):
-                atom_site_headers.append(line.strip())
+            elif in_atom_site_headers and line.strip().startswith('_'):
+                # Another header line
                 new_lines.append(line)
-            elif in_atom_site and not line.strip().startswith('_') and line.strip() and not line.strip().startswith('loop_'):
-                # This is an atom line - add charge
-                if atom_idx == 0:
-                    # Add charge column header first
+            elif in_atom_site_headers and not line.strip().startswith('_') and line.strip() and not line.strip().startswith('loop_'):
+                # First atom data line - add charge header before it
+                if not added_charge_header:
                     new_lines.append('  _atom_site_charge')
+                    added_charge_header = True
+                    in_atom_site_headers = False
+                # Add charge to atom line
+                if atom_idx < len(charges):
+                    new_lines.append(f"{line}  {charges[atom_idx]:.6f}")
+                else:
+                    new_lines.append(f"{line}  0.0")
+                atom_idx += 1
+            elif added_charge_header and line.strip() and not line.strip().startswith('loop_') and not line.strip().startswith('#') and not line.strip().startswith('_'):
+                # Subsequent atom data lines
                 if atom_idx < len(charges):
                     new_lines.append(f"{line}  {charges[atom_idx]:.6f}")
                 else:
                     new_lines.append(f"{line}  0.0")
                 atom_idx += 1
             else:
-                if in_atom_site and (line.strip().startswith('loop_') or line.strip() == ''):
-                    in_atom_site = False
                 new_lines.append(line)
         
         cif_content = '\n'.join(new_lines)
@@ -334,15 +340,15 @@ def calculate_charges(simulation, method="eqeq"):
 def run_gcmc_simulation(
     simulation,
     initialization_cycles=0,
-    equilibration_cycles=2000,
-    production_cycles=2000,
+    equilibration_cycles=10000,
+    production_cycles=10000,
     forcefield=None,  # Auto-detect based on sorbates
     forcefield_cutoff=12,
     molecule_definitions=None,  # Auto-detect based on sorbates
     unit_cells=[0, 0, 0],
     cleanup=False,
     rewrite_raspa_input=False,
-    use_charges=False,  # Disable charges by default to avoid memory issues
+    use_charges=True,  # Enable charges by default for accurate electrostatic interactions
 ):
     # Auto-detect force field and molecule definitions based on sorbates
     if "NH3" in simulation.sorbates:
@@ -370,10 +376,11 @@ def run_gcmc_simulation(
     # build a RASPA config file, starting with high level parameters
     # Determine charge settings based on use_charges flag
     if use_charges:
-        # Use Coulomb truncated instead of Ewald to avoid memory issues
+        # Use Ewald summation for proper long-range electrostatics (critical for polar molecules like NH3)
         charge_config = f"""UseChargesFromCIFFile         yes
              CutOffChargeCharge            {forcefield_cutoff}
-             ChargeMethod                  Coulomb"""
+             ChargeMethod                  Ewald
+             EwaldPrecision                1e-6"""
     else:
         charge_config = """UseChargesFromCIFFile         no
              ChargeMethod                  None"""

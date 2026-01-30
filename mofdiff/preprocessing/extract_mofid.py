@@ -11,7 +11,11 @@ from mofdiff.common.mof_utils import save_mofid
 
 def preprocess_mofid(df_path, cif_path, save_path, num_workers):
     df = pd.read_csv(str(df_path))
-    df.rename(columns={"MOFname": "material_id"}, inplace=True)
+    # Handle different column names for material ID
+    if "MOFname" in df.columns:
+        df.rename(columns={"MOFname": "material_id"}, inplace=True)
+    elif "refcode" in df.columns:
+        df.rename(columns={"refcode": "material_id"}, inplace=True)
     save_path.mkdir(exist_ok=True, parents=True)
 
     def process_one(row):

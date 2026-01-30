@@ -13,7 +13,11 @@ mp.set_start_method("spawn", force=True)
 
 def preprocess_graph(df_path, mofid_path, save_path, num_workers, device="cpu"):
     df = pd.read_csv(str(df_path))
-    df.rename(columns={"MOFname": "material_id"}, inplace=True)
+    # Handle different column names for material ID
+    if "MOFname" in df.columns:
+        df.rename(columns={"MOFname": "material_id"}, inplace=True)
+    elif "refcode" in df.columns:
+        df.rename(columns={"refcode": "material_id"}, inplace=True)
     save_path.mkdir(exist_ok=True, parents=True)
 
     def assemble_mof(m_id, use_asr=True):
