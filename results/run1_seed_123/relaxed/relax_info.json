@@ -1,0 +1,9 @@
+[
+  {
+    "name": "sample_0",
+    "natoms": 62,
+    "volume": 1590.8605126420568,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/pretrained/mofdiff_ckpt/samples_1_seed_123/relaxed/sample_0_relaxed.cif",
+    "success": true
+  }
+]

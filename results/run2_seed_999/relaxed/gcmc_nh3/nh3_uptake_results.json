@@ -1,0 +1,20 @@
+[
+  {
+    "uid": "sample_0_relaxed",
+    "info": "success",
+    "adsorption_info": {
+      "file": "pretrained/mofdiff_ckpt/samples_1_seed_999/relaxed/sample_0_relaxed.cif",
+      "temperature_K": 298,
+      "pressure_Pa": 101325,
+      "NH3_uptake_mol_kg": 5.198933602,
+      "NH3_uptake_mmol_g": 5.198933602,
+      "NH3_uptake_mg_g": 88.543038175662,
+      "NH3_heat_of_adsorption_kcal_mol": 5.82824444
+    }
+  },
+  {
+    "uid": "sample_0_relaxed",
+    "info": "[Errno 2] No such file or directory: 'pretrained/mofdiff_ckpt/samples_1_seed_999/relaxed/gcmc_nh3/raspa_output/sample_0_relaxed_4955826/Output/System_0'",
+    "adsorption_info": null
+  }
+]
