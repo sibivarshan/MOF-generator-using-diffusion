@@ -1,0 +1,20 @@
+{
+  "sample_1_relaxed": {
+    "error": "list index out of range"
+  },
+  "sample_2_relaxed": {
+    "error": "[Errno 2] No such file or directory: '/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/gcmc/sample_2_relaxed/raspa_output/sample_2_relaxed_2023726/Output/System_0'"
+  },
+  "sample_3_relaxed": {
+    "error": "[Errno 2] No such file or directory: '/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/gcmc/sample_3_relaxed/raspa_output/sample_3_relaxed_3138719/Output/System_0'"
+  },
+  "sample_4_relaxed": {
+    "error": "[Errno 2] No such file or directory: '/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/gcmc/sample_4_relaxed/raspa_output/sample_4_relaxed_352089/Output/System_0'"
+  },
+  "sample_7_relaxed": {
+    "error": "[Errno 2] No such file or directory: '/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/gcmc/sample_7_relaxed/raspa_output/sample_7_relaxed_097315/Output/System_0'"
+  },
+  "sample_8_relaxed": {
+    "error": "[Errno 2] No such file or directory: '/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/gcmc/sample_8_relaxed/raspa_output/sample_8_relaxed_2910357/Output/System_0'"
+  }
+}

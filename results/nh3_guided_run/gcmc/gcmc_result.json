@@ -1,0 +1,9 @@
+{
+  "file": "results/nh3_guided_run/relaxed/sample_1_relaxed.cif",
+  "temperature_K": 298,
+  "pressure_Pa": 101325,
+  "NH3_uptake_mol_kg": 5.7959251332,
+  "NH3_uptake_mmol_g": 5.7959251332,
+  "NH3_uptake_mg_g": 98.7104009435292,
+  "NH3_heat_of_adsorption_kcal_mol": 5.59356078
+}

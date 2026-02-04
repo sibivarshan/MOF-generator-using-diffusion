@@ -1,0 +1,44 @@
+{
+  "sample_4_relaxed": {
+    "NH3_uptake_mol_kg": 0.9624357624,
+    "NH3_uptake_mol_kg_error": 0.1620997019,
+    "NH3_uptake_mmol_g": 0.9624357624,
+    "NH3_uptake_mg_g": 16.3908199977,
+    "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/relaxed/sample_4_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_7_relaxed": {
+    "NH3_uptake_mol_kg": 3.0992259284,
+    "NH3_uptake_mol_kg_error": 0.0894731962,
+    "NH3_uptake_mmol_g": 3.0992259284,
+    "NH3_uptake_mg_g": 52.7815531273,
+    "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/relaxed/sample_7_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_2_relaxed": {
+    "NH3_uptake_mol_kg": 5.533781035,
+    "NH3_uptake_mol_kg_error": 0.1759693063,
+    "NH3_uptake_mmol_g": 5.533781035,
+    "NH3_uptake_mg_g": 94.2433899432,
+    "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/relaxed/sample_2_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_3_relaxed": {
+    "NH3_uptake_mol_kg": 10.1296030242,
+    "NH3_uptake_mol_kg_error": 0.3556152578,
+    "NH3_uptake_mmol_g": 10.1296030242,
+    "NH3_uptake_mg_g": 172.5128120807,
+    "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/relaxed/sample_3_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_8_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_1_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  }
+}

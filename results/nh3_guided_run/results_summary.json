@@ -1,0 +1,49 @@
+{
+  "experiment": "NH3-Guided MOF Generation Run",
+  "date": "2025-02-02",
+  "description": "Generated MOF structure using MOFDiff with NH3-guidance, assembled, relaxed, and validated via GCMC",
+  
+  "model_info": {
+    "mofdiff_checkpoint": "pretrained/mofdiff_ckpt",
+    "nh3_head": "nh3_head_training/nh3_head_ensemble.pt",
+    "nh3_head_spearman": 0.89,
+    "nh3_head_mae": 0.43
+  },
+  
+  "generation": {
+    "seed": 2024,
+    "num_samples": 5,
+    "samples_assembled": 2,
+    "sample_used": "sample_0"
+  },
+  
+  "structure": {
+    "input_cif": "cif/sample_1.cif",
+    "relaxed_cif": "relaxed/sample_1_relaxed.cif",
+    "num_atoms": 80,
+    "unit_cell_volume_A3": 2575.3
+  },
+  
+  "gcmc_results": {
+    "temperature_K": 298,
+    "pressure_Pa": 101325,
+    "equilibration_cycles": 5000,
+    "production_cycles": 5000,
+    "NH3_uptake_mmol_g": 5.7959,
+    "NH3_uptake_mg_g": 98.71,
+    "heat_of_adsorption_kcal_mol": 5.59
+  },
+  
+  "files": {
+    "assembled_cif": "cif/sample_1.cif",
+    "relaxed_cif": "relaxed/sample_1_relaxed.cif",
+    "gcmc_output": "gcmc/gcmc_result.json",
+    "relaxation_info": "relaxed/relax_info.json"
+  },
+  
+  "notes": [
+    "Original NH3-guided latent (LOBHAM) failed assembly due to connection criteria violation",
+    "Used fresh generation with seed 2024, sample_0 assembled successfully",
+    "GCMC shows NH3 uptake of 5.80 mmol/g at 298K, 1 bar"
+  ]
+}

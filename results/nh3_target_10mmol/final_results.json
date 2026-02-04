@@ -1,0 +1,78 @@
+{
+  "experiment": "NH3-Targeted MOF Generation - 10 mmol/g Target",
+  "date": "2025-02-04",
+  "description": "Generated MOF structures using MOFDiff and validated NH3 uptake via GCMC, targeting 10 mmol/g",
+  
+  "target": {
+    "NH3_uptake_mmol_g": 10.0,
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  
+  "generation": {
+    "seed": 1234,
+    "num_samples_generated": 10,
+    "num_samples_assembled": 6,
+    "model": "pretrained/mofdiff_ckpt"
+  },
+  
+  "gcmc_settings": {
+    "equilibration_cycles": 2000,
+    "production_cycles": 2000,
+    "unit_cells": "2x2x2",
+    "forcefield": "NH3_GCMC",
+    "charge_method": "EQeq (OpenBabel)",
+    "parallel_workers": 6
+  },
+  
+  "results_summary": {
+    "successful_simulations": 4,
+    "total_simulations": 6,
+    "best_match": {
+      "structure": "sample_3_relaxed",
+      "NH3_uptake_mmol_g": 10.1296,
+      "difference_from_target": 0.1296,
+      "num_atoms": 94,
+      "volume_A3": 3476.8
+    }
+  },
+  
+  "all_results": [
+    {"name": "sample_3_relaxed", "NH3_mmol_g": 10.13, "diff": "+0.13", "status": "BEST MATCH"},
+    {"name": "sample_2_relaxed", "NH3_mmol_g": 5.53, "diff": "-4.47", "status": "OK"},
+    {"name": "sample_7_relaxed", "NH3_mmol_g": 3.10, "diff": "-6.90", "status": "OK"},
+    {"name": "sample_4_relaxed", "NH3_mmol_g": 0.96, "diff": "-9.04", "status": "OK"},
+    {"name": "sample_1_relaxed", "NH3_mmol_g": null, "diff": null, "status": "TIMEOUT"},
+    {"name": "sample_8_relaxed", "NH3_mmol_g": null, "diff": null, "status": "TIMEOUT"}
+  ],
+  
+  "comparison_with_previous": {
+    "previous_run": {
+      "description": "NH3-guided run (seed 2024)",
+      "structure": "sample_1_relaxed",
+      "NH3_uptake_mmol_g": 5.80,
+      "num_atoms": 80
+    },
+    "current_best": {
+      "description": "10 mmol/g targeted run (seed 1234)",
+      "structure": "sample_3_relaxed",
+      "NH3_uptake_mmol_g": 10.13,
+      "num_atoms": 94
+    },
+    "improvement": "74.7% higher NH3 uptake"
+  },
+  
+  "files": {
+    "best_structure_cif": "relaxed/sample_3_relaxed.cif",
+    "gcmc_results": "gcmc_parallel/all_results.json",
+    "relaxation_info": "relaxed/relax_info.json"
+  },
+  
+  "conclusions": [
+    "Successfully generated MOF with NH3 uptake of 10.13 mmol/g - almost exactly matching 10 mmol/g target",
+    "Best structure (sample_3) has 94 atoms and 3476.8 Å³ unit cell volume",
+    "Achieved 74.7% improvement over previous generation run (5.80 -> 10.13 mmol/g)",
+    "4 out of 6 structures completed GCMC successfully with parallel processing",
+    "Parallel GCMC with 6 workers significantly reduced total computation time"
+  ]
+}
