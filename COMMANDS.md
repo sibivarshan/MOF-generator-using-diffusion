@@ -8,6 +8,48 @@ cd /home/sibivarshan_m7/MOFDiff/MOFDiff
 
 ---
 
+## 🚀 MODULAR PIPELINE (Recommended)
+
+### One Command for Any Target NH3 Uptake
+```bash
+# Generate MOF for ANY target NH3 uptake value
+python scripts/run_nh3_pipeline.py --target <VALUE>
+
+# Examples:
+python scripts/run_nh3_pipeline.py --target 2.0    # Target 2 mmol/g
+python scripts/run_nh3_pipeline.py --target 5.0    # Target 5 mmol/g
+python scripts/run_nh3_pipeline.py --target 10.0   # Target 10 mmol/g
+python scripts/run_nh3_pipeline.py --target 15.0   # Target 15 mmol/g
+```
+
+### Pipeline Options
+```bash
+# With custom number of samples
+python scripts/run_nh3_pipeline.py --target 8.0 --n_samples 20
+
+# With specific seed for reproducibility
+python scripts/run_nh3_pipeline.py --target 6.0 --seed 42
+
+# Custom output directory
+python scripts/run_nh3_pipeline.py --target 4.0 --output_dir results/my_custom_run
+
+# Skip specific steps (if already done)
+python scripts/run_nh3_pipeline.py --target 5.0 --skip_generation  # Use existing samples
+python scripts/run_nh3_pipeline.py --target 5.0 --skip_gcmc        # Skip GCMC validation
+
+# Full options
+python scripts/run_nh3_pipeline.py --target 7.0 --n_samples 15 --seed 999
+```
+
+### What the Pipeline Does:
+1. **Generate** - Creates MOF samples using MOFDiff
+2. **Assemble** - Converts coarse-grained to atomistic structures
+3. **Relax** - Optimizes structures using Pymatgen
+4. **GCMC** - Validates NH3 uptake with RASPA simulations
+5. **Report** - Finds best match and saves results
+
+---
+
 ## 1. Normal MOF Generation (Unconditional)
 
 ### Generate Samples
