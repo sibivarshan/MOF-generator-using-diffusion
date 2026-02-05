@@ -1,6 +1,5 @@
 """
-Run GCMC simulation batch using parallel processing for speedup.
-Utilizes multiprocessing to run multiple RASPA simulations concurrently.
+Run GCMC simulation for 2 mmol/g target.
 """
 import os
 import sys
@@ -22,7 +21,6 @@ def parse_raspa_output(output_file):
     
     result = {}
     
-    # Extract absolute loading in mol/kg
     mol_kg_match = re.search(
         r'Average loading absolute \[mol/kg framework\]\s+([\d.]+)\s+\+/-\s+([\d.]+)',
         content
@@ -32,7 +30,6 @@ def parse_raspa_output(output_file):
         result['NH3_uptake_mol_kg_error'] = float(mol_kg_match.group(2))
         result['NH3_uptake_mmol_g'] = result['NH3_uptake_mol_kg']
     
-    # Extract mg/g
     mg_g_match = re.search(
         r'Average loading absolute \[milligram/gram framework\]\s+([\d.]+)\s+\+/-\s+([\d.]+)',
         content
@@ -44,37 +41,26 @@ def parse_raspa_output(output_file):
 
 
 def run_gcmc_single(args):
-    """Run GCMC for a single structure - designed for parallel execution"""
+    """Run GCMC for a single structure"""
     cif_path, output_dir, forcefield = args
     
     from openbabel import pybel
+    from pymatgen.core import Structure
     
-    cif_path = Path(cif_path)
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    
-    name = cif_path.stem
-    identifier = name + "_" + str(abs(hash(str(cif_path))))[-6:]
-    workdir = output_dir / identifier
+    name = Path(cif_path).stem
+    workdir = Path(output_dir)
     workdir.mkdir(parents=True, exist_ok=True)
     
-    # Hardcode paths - RASPA_DIR should point to the install root, not share/raspa
-    raspa_install = "/home/sibivarshan_m7/gcmc_tools/raspa_install"
-    raspa_path = raspa_install + "/share/raspa"
-    raspa_sim = raspa_install + "/bin/simulate"
-    raspa_lib = raspa_install + "/lib"
+    raspa_path = "/home/sibivarshan_m7/gcmc_tools/raspa_install/share/raspa"
     
     try:
-        # Calculate charges with OpenBabel EQeq
-        charges_dir = output_dir / "charges"
-        charges_dir.mkdir(parents=True, exist_ok=True)
-        charged_cif = charges_dir / f"{name}_charged.cif"
+        # Calculate EQeq charges
+        mol = next(pybel.readfile('cif', cif_path))
+        mol.calccharges('eqeq')
+        charges = [a.partialcharge for a in mol.atoms]
         
-        # Read CIF and calculate EQeq charges
-        mol = next(pybel.readfile("cif", str(cif_path)))
-        charges = mol.calccharges("eqeq")
-        
-        # Read original CIF and add charges
+        # Create charged CIF for RASPA
+        charged_cif = workdir / f"{name}_charged.cif"
         with open(cif_path, 'r') as f:
             lines = f.readlines()
         
@@ -106,7 +92,7 @@ def run_gcmc_single(args):
         # Copy charged CIF to RASPA
         shutil.copy(str(charged_cif), f"{raspa_path}/structures/cif/")
         
-        # Create simulation input with reduced cycles for faster testing
+        # Create simulation input
         simulation_input = f"""SimulationType                MonteCarlo
 NumberOfCycles                2000
 NumberOfInitializationCycles  0
@@ -148,18 +134,20 @@ Component 0 MoleculeName            NH3
         with open(workdir / "simulation.input", "w") as f:
             f.write(simulation_input)
         
-        # Run RASPA with proper environment
+        # Setup RASPA environment
         env = os.environ.copy()
-        env['RASPA_DIR'] = raspa_install  # Should point to install root
-        env['LD_LIBRARY_PATH'] = raspa_lib + ":" + env.get('LD_LIBRARY_PATH', '')
+        env['RASPA_DIR'] = raspa_path
+        env['DYLD_LIBRARY_PATH'] = "/home/sibivarshan_m7/gcmc_tools/raspa_install/lib"
+        env['LD_LIBRARY_PATH'] = "/home/sibivarshan_m7/gcmc_tools/raspa_install/lib"
         
+        # Run RASPA
         proc = subprocess.run(
-            [raspa_sim, "simulation.input"],
+            ["/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate", "simulation.input"],
             cwd=str(workdir),
-            env=env,
             capture_output=True,
             text=True,
-            timeout=1200  # 20 minute timeout per simulation
+            env=env,
+            timeout=1200
         )
         
         if proc.returncode != 0:
@@ -186,32 +174,20 @@ Component 0 MoleculeName            NH3
 
 
 def main():
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--input_dir', type=str, default="/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_10mmol/relaxed")
-    parser.add_argument('--output_dir', type=str, default=None)
-    parser.add_argument('--target_nh3', type=float, default=10.0)
-    args = parser.parse_args()
-    
-    input_dir = Path(args.input_dir)
-    if args.output_dir:
-        output_dir = Path(args.output_dir)
-    else:
-        output_dir = input_dir.parent / "gcmc_parallel"
+    input_dir = Path("/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_2mmol/relaxed")
+    output_dir = Path("/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_2mmol/gcmc_parallel")
     output_dir.mkdir(parents=True, exist_ok=True)
     
     cif_files = sorted(input_dir.glob("*.cif"))
     n_files = len(cif_files)
     print(f"Found {n_files} CIF files to process")
     
-    # Use up to 12 workers (leave some CPUs for system)
-    n_workers = min(12, n_files, cpu_count() - 2)
+    n_workers = min(6, n_files, cpu_count() - 2)
     print(f"Using {n_workers} parallel workers (available CPUs: {cpu_count()})")
     
-    target_nh3 = args.target_nh3
+    target_nh3 = 2.0  # Target: 2 mmol/g
     forcefield = "NH3_GCMC"
     
-    # Prepare arguments for parallel execution
     args_list = [
         (str(cif), str(output_dir / cif.stem), forcefield)
         for cif in cif_files

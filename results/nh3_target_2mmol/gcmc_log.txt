@@ -1,0 +1,32 @@
+Found 6 CIF files to process
+Using 6 parallel workers (available CPUs: 16)
+
+Starting parallel GCMC simulations...
+============================================================
+==============================
+*** Open Babel Warning  in PerceiveBondOrders
+  Failed to kekulize aromatic bonds in OBMol::PerceiveBondOrders (title is ZnH13C21(NO2)2)
+
+[1/6] sample_2_relaxed: 1.06 mmol/g (diff: -0.94)
+[2/6] sample_6_relaxed: 2.32 mmol/g (diff: +0.32)
+[3/6] sample_9_relaxed: 4.62 mmol/g (diff: +2.62)
+[4/6] sample_1_relaxed: ERROR - Command '['/home/sibivarshan_m7/gcmc_tools/raspa_i
+[5/6] sample_3_relaxed: ERROR - Command '['/home/sibivarshan_m7/gcmc_tools/raspa_i
+[6/6] sample_0_relaxed: ERROR - Command '['/home/sibivarshan_m7/gcmc_tools/raspa_i
+
+============================================================
+GCMC Results Summary (Target: 2.0 mmol/g)
+============================================================
+
+Successful: 3/6
+
+Ranking by NH3 uptake:
+  1. sample_9_relaxed: 4.6201 mmol/g (diff: +2.62)
+  2. sample_6_relaxed: 2.3216 mmol/g (diff: +0.32)
+  3. sample_2_relaxed: 1.0638 mmol/g (diff: -0.94)
+
+*** Best match to 2.0 mmol/g target ***
+    sample_6_relaxed: 2.3216 mmol/g
+    Difference: 0.3216 mmol/g
+
+Results saved to: results/nh3_target_2mmol/gcmc_parallel/all_results.json

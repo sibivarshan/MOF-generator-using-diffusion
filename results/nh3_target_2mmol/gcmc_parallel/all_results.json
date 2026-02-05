@@ -1,0 +1,38 @@
+{
+  "sample_2_relaxed": {
+    "NH3_uptake_mol_kg": 1.0637644577,
+    "NH3_uptake_mol_kg_error": 0.1304754584,
+    "NH3_uptake_mmol_g": 1.0637644577,
+    "NH3_uptake_mg_g": 18.1165044222,
+    "file": "results/nh3_target_2mmol/relaxed/sample_2_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_6_relaxed": {
+    "NH3_uptake_mol_kg": 2.3216377924,
+    "NH3_uptake_mol_kg_error": 0.0594559381,
+    "NH3_uptake_mmol_g": 2.3216377924,
+    "NH3_uptake_mg_g": 39.5387917218,
+    "file": "results/nh3_target_2mmol/relaxed/sample_6_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_9_relaxed": {
+    "NH3_uptake_mol_kg": 4.6200793204,
+    "NH3_uptake_mol_kg_error": 0.3630565447,
+    "NH3_uptake_mmol_g": 4.6200793204,
+    "NH3_uptake_mg_g": 78.6825380709,
+    "file": "results/nh3_target_2mmol/relaxed/sample_9_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_1_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_3_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_0_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  }
+}

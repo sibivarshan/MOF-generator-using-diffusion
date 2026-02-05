@@ -1,0 +1,32 @@
+{
+  "target_nh3_mmol_g": 2.0,
+  "seed": 5678,
+  "n_samples_generated": 10,
+  "n_assembled": 6,
+  "n_relaxed": 6,
+  "n_gcmc_successful": 3,
+  "best_result": {
+    "structure": "sample_6_relaxed",
+    "nh3_uptake_mmol_g": 2.3216,
+    "difference_from_target": 0.3216
+  },
+  "all_results": {
+    "sample_2_relaxed": 1.0638,
+    "sample_6_relaxed": 2.3216,
+    "sample_9_relaxed": 4.6201
+  },
+  "comparison_with_previous_runs": {
+    "target_10mmol_run": {
+      "best_structure": "sample_3_relaxed",
+      "achieved": 10.13,
+      "target": 10.0,
+      "difference": 0.13
+    },
+    "target_2mmol_run": {
+      "best_structure": "sample_6_relaxed",
+      "achieved": 2.32,
+      "target": 2.0,
+      "difference": 0.32
+    }
+  }
+}
