@@ -1,0 +1,9 @@
+Found 8 CIF files to process
+Using 8 parallel workers (available CPUs: 16)
+
+Starting parallel GCMC simulations...
+============================================================
+==============================
+*** Open Babel Warning  in PerceiveBondOrders
+  Failed to kekulize aromatic bonds in OBMol::PerceiveBondOrders (title is Zn4H16C62N5O26F7)
+

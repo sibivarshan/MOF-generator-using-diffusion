@@ -1,0 +1,36 @@
+SimulationType                MonteCarlo
+NumberOfCycles                10000
+NumberOfInitializationCycles  0
+NumberOfEquilibrationCycles   10000
+PrintEvery                    1000
+
+Forcefield                    NH3_GCMC
+UseChargesFromCIFFile         yes
+CutOffChargeCharge            12
+ChargeMethod                  Ewald
+EwaldPrecision                1e-6
+CutOffVDW                     12
+
+Framework                     0
+FrameworkName                 sample_1_4248447_charged_004978_charged
+InputFileType                 cif
+UnitCells                     2 2 2
+HeliumVoidFraction            1.0
+ExternalTemperature           298.0
+ExternalPressure              101325.0
+
+Movies                        no
+
+Component 0 MoleculeName            NH3
+         MoleculeDefinition            NH3_GCMC
+         MolFraction                   1.0
+         BlockPockets                  no
+         IdealGasRosenbluthWeight      1.0
+         IdentityChangeProbability     0.0
+           NumberOfIdentityChanges       1
+           IdentityChangeList            0
+         TranslationProbability        0.5
+         RotationProbability           0.5
+         ReinsertionProbability        0.5
+         SwapProbability               1.0
+         CreateNumberOfMolecules       0

@@ -1,0 +1,49 @@
+Cell info:
+========================================================================
+number-of-unit-cells: 2 2 2
+unit-cell-vector-a:    12.272750000000     0.000000000000     0.000000000000
+unit-cell-vector-b:     2.034751651105    12.407007224985     0.000000000000
+unit-cell-vector-c:     1.866223934816     0.812669676046    16.069608090518
+
+cell-vector-a:    24.545500000000     0.000000000000     0.000000000000
+cell-vector-b:     4.069503302210    24.814014449970     0.000000000000
+cell-vector-c:     3.732447869633     1.625339352093    32.139216181037
+
+cell-lengths:    12.272750000000    12.572750000000    16.198010000000
+cell-angles:    86.091950000000    83.384080000000    80.686390000000
+
+
+Maximum changes for MC-moves:
+========================================================================
+Maximum-volume-change: 0.025000
+Maximum-Gibbs-volume-change: 0.100000
+Maximum-box-shape-change: 0.100000 0.100000 0.100000, 0.100000 0.100000 0.100000, 0.100000 0.100000 0.100000
+
+
+Acceptance targets for MC-moves:
+========================================================================
+Target-volume-change: 0.500000
+Target-box-shape-change: 0.500000
+Target-Gibbs-volume-change: 0.500000
+
+
+Components: 1 (Adsorbates 0, Cations 0)
+========================================================================
+Component 0 (NH3)
+	Fractional-molecule-id component 0: -1
+	Lambda-factors component 0:  0.000000 0.000000 0.000000 0.000000
+	Number-of-biasing-factors component 0: 21
+	Biasing-factors component 0:  0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+	Maximum-CF-Lambda-change component 0: 0.500000
+	Maximum-CBCF-Lambda-change component 0: 0.500000
+
+	Maximum-translation-change component 0: 1.300000,1.300000,1.300000
+	Maximum-translation-in-plane-change component 0: 0.000000,0.000000,0.000000
+	Maximum-rotation-change component 0: 0.436332 0.436332 0.436332
+
+Reactions: 0
+
+Component: 0     Adsorbate    0 molecules of NH3
+------------------------------------------------------------------------
+
+
