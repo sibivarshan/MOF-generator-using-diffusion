@@ -1,0 +1,110 @@
+{
+  "sample_14_relaxed": {
+    "error": "==============================\n*** Open Babel Error  in ComputeCharges\n  Insufficient ionization data for atoms in the given molecule. Update `data/eqeqIonizations.txt` with missing information and re-run this function.\n"
+  },
+  "sample_12_relaxed": {
+    "NH3_uptake_mol_kg": 2.9241662993,
+    "NH3_uptake_mol_kg_error": 0.2244676879,
+    "NH3_uptake_mmol_g": 2.9241662993,
+    "NH3_uptake_mg_g": 49.800189611,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_12_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_7_relaxed": {
+    "NH3_uptake_mol_kg": 1.6950355265,
+    "NH3_uptake_mol_kg_error": 0.0783461541,
+    "NH3_uptake_mmol_g": 1.6950355265,
+    "NH3_uptake_mg_g": 28.8674042362,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_7_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_3_relaxed": {
+    "NH3_uptake_mol_kg": 2.6661798056,
+    "NH3_uptake_mol_kg_error": 0.4430136031,
+    "NH3_uptake_mmol_g": 2.6661798056,
+    "NH3_uptake_mg_g": 45.4065351499,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_3_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_0_relaxed": {
+    "NH3_uptake_mol_kg": 5.0879624446,
+    "NH3_uptake_mol_kg_error": 0.2148604621,
+    "NH3_uptake_mmol_g": 5.0879624446,
+    "NH3_uptake_mg_g": 86.6508496908,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_0_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_6_relaxed": {
+    "NH3_uptake_mol_kg": 2.8414421396,
+    "NH3_uptake_mol_kg_error": 0.2164147322,
+    "NH3_uptake_mmol_g": 2.8414421396,
+    "NH3_uptake_mg_g": 48.3913508448,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_6_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_9_relaxed": {
+    "NH3_uptake_mol_kg": 2.4758358525,
+    "NH3_uptake_mol_kg_error": 0.1624047302,
+    "NH3_uptake_mmol_g": 2.4758358525,
+    "NH3_uptake_mg_g": 42.1648710365,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_9_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_10_relaxed": {
+    "NH3_uptake_mol_kg": 6.8874726981,
+    "NH3_uptake_mol_kg_error": 0.6612166251,
+    "NH3_uptake_mmol_g": 6.8874726981,
+    "NH3_uptake_mg_g": 117.2975170327,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_10_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_2_relaxed": {
+    "NH3_uptake_mol_kg": 4.5769939955,
+    "NH3_uptake_mol_kg_error": 0.1593238638,
+    "NH3_uptake_mmol_g": 4.5769939955,
+    "NH3_uptake_mg_g": 77.94877086,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_2_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_15_relaxed": {
+    "NH3_uptake_mol_kg": 2.2333819514,
+    "NH3_uptake_mol_kg_error": 0.2686902511,
+    "NH3_uptake_mmol_g": 2.2333819514,
+    "NH3_uptake_mg_g": 38.0357453266,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_15_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_18_relaxed": {
+    "NH3_uptake_mol_kg": 4.7215721714,
+    "NH3_uptake_mol_kg_error": 0.2598366403,
+    "NH3_uptake_mmol_g": 4.7215721714,
+    "NH3_uptake_mg_g": 80.411018159,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_18_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_11_relaxed": {
+    "NH3_uptake_mol_kg": 5.4934916799,
+    "NH3_uptake_mol_kg_error": 0.2383639076,
+    "NH3_uptake_mmol_g": 5.4934916799,
+    "NH3_uptake_mg_g": 93.5572396641,
+    "file": "results/nh3_target_22mmol_v2/relaxed/sample_11_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_19_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_13_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  }
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "name": "sample_18",
+    "natoms": 130,
+    "volume": 2371.34632688754,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_18_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_9",
+    "natoms": 72,
+    "volume": 1938.387088499748,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_9_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_3",
+    "natoms": 86,
+    "volume": 4835.2158584479475,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_3_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_2",
+    "natoms": 66,
+    "volume": 2524.2243865313603,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_2_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_0",
+    "natoms": 50,
+    "volume": 1779.2789565578232,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_0_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_15",
+    "natoms": 122,
+    "volume": 2710.5602140803353,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_15_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_19",
+    "natoms": 350,
+    "volume": 21352.14231387695,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_19_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_10",
+    "natoms": 54,
+    "volume": 1672.5873502961977,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_10_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_7",
+    "natoms": 104,
+    "volume": 4420.4379208580785,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_7_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_13",
+    "natoms": 230,
+    "volume": 3525.8546013508503,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_13_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_12",
+    "natoms": 46,
+    "volume": 1428.6736275596654,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_12_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_14",
+    "natoms": 136,
+    "volume": 2240.3450773815857,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_14_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_6",
+    "natoms": 106,
+    "volume": 4636.003720395915,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_6_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_11",
+    "natoms": 135,
+    "volume": 3088.329490683196,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_22mmol_v2/relaxed/sample_11_relaxed.cif",
+    "success": true
+  }
+]

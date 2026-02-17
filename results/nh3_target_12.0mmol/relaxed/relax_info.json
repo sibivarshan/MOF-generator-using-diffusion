@@ -1,0 +1,72 @@
+[
+  {
+    "name": "sample_9",
+    "natoms": 91,
+    "volume": 3474.02974866357,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_9_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_2",
+    "natoms": 98,
+    "volume": 2409.280033562861,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_2_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_0",
+    "natoms": 252,
+    "volume": 6152.116741293402,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_0_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_10",
+    "natoms": 176,
+    "volume": 5941.124357746321,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_10_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_8",
+    "natoms": 108,
+    "volume": 3155.5245068511554,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_8_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_7",
+    "natoms": 243,
+    "volume": 4811.359728056669,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_7_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_13",
+    "natoms": 142,
+    "volume": 4864.497420160627,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_13_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_5",
+    "natoms": 60,
+    "volume": 1801.1711400630925,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_5_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_12",
+    "natoms": 110,
+    "volume": 2934.8703039697575,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_12_relaxed.cif",
+    "success": true
+  },
+  {
+    "name": "sample_1",
+    "natoms": 410,
+    "volume": 20096.437953933848,
+    "path": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_1_relaxed.cif",
+    "success": true
+  }
+]

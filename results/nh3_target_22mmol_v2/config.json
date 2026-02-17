@@ -1,0 +1,6 @@
+{
+  "target_nh3": 22.0,
+  "n_samples": 20,
+  "seed": 9999,
+  "output_dir": "results/nh3_target_22mmol_v2"
+}

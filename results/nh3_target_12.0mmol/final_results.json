@@ -1,0 +1,29 @@
+{
+  "target_nh3_mmol_g": 12.0,
+  "config": {
+    "target_nh3": 12.0,
+    "n_samples": 15,
+    "seed": 13234,
+    "output_dir": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol"
+  },
+  "timestamp": "2026-02-05T14:25:22.603967",
+  "best_result": {
+    "structure": "sample_5_relaxed",
+    "nh3_uptake_mmol_g": 8.1316225081,
+    "difference_from_target": 3.8683774919000005
+  },
+  "all_results": {
+    "sample_2_relaxed": 2.4227163256,
+    "sample_8_relaxed": 2.7125643868,
+    "sample_5_relaxed": 8.1316225081,
+    "sample_9_relaxed": "ERROR",
+    "sample_12_relaxed": "ERROR",
+    "sample_10_relaxed": "ERROR",
+    "sample_13_relaxed": "ERROR",
+    "sample_1_relaxed": "ERROR",
+    "sample_0_relaxed": "ERROR",
+    "sample_7_relaxed": "ERROR"
+  },
+  "n_successful": 3,
+  "n_total": 10
+}

@@ -1,0 +1,33 @@
+{
+  "target_nh3_mmol_g": 22.0,
+  "config": {
+    "target_nh3": 22.0,
+    "n_samples": 20,
+    "seed": 9999,
+    "output_dir": "results/nh3_target_22mmol_v2"
+  },
+  "timestamp": "2026-02-05T10:47:50.879835",
+  "best_result": {
+    "structure": "sample_10_relaxed",
+    "nh3_uptake_mmol_g": 6.8874726981,
+    "difference_from_target": 15.1125273019
+  },
+  "all_results": {
+    "sample_14_relaxed": "ERROR",
+    "sample_12_relaxed": 2.9241662993,
+    "sample_7_relaxed": 1.6950355265,
+    "sample_3_relaxed": 2.6661798056,
+    "sample_0_relaxed": 5.0879624446,
+    "sample_6_relaxed": 2.8414421396,
+    "sample_9_relaxed": 2.4758358525,
+    "sample_10_relaxed": 6.8874726981,
+    "sample_2_relaxed": 4.5769939955,
+    "sample_15_relaxed": 2.2333819514,
+    "sample_18_relaxed": 4.7215721714,
+    "sample_11_relaxed": 5.4934916799,
+    "sample_19_relaxed": "ERROR",
+    "sample_13_relaxed": "ERROR"
+  },
+  "n_successful": 11,
+  "n_total": 14
+}

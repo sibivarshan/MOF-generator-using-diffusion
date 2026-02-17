@@ -1,0 +1,90 @@
+[
+  {
+    "uid": "sample_6",
+    "info": "atomic overlap detected",
+    "adsorption_info": null
+  },
+  {
+    "uid": "sample_8",
+    "info": "success",
+    "adsorption_info": {
+      "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_optimized_5.0/relaxed/sample_8.cif",
+      "temperature_K": 298.0,
+      "pressure_Pa": 101325.0,
+      "NH3_uptake_mol_kg": 2.2414011615,
+      "NH3_uptake_mmol_g": 2.2414011615,
+      "NH3_uptake_mg_g": 38.17330318150649,
+      "NH3_heat_of_adsorption_kcal_mol": 5.34804086
+    }
+  },
+  {
+    "uid": "sample_3",
+    "info": "success",
+    "adsorption_info": {
+      "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_optimized_5.0/relaxed/sample_3.cif",
+      "temperature_K": 298.0,
+      "pressure_Pa": 101325.0,
+      "NH3_uptake_mol_kg": 1.4640158555,
+      "NH3_uptake_mmol_g": 1.4640158555,
+      "NH3_uptake_mg_g": 24.9336540350205,
+      "NH3_heat_of_adsorption_kcal_mol": 4.82067541
+    }
+  },
+  {
+    "uid": "sample_3",
+    "info": "success",
+    "adsorption_info": {
+      "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_optimized_5.0/relaxed/sample_3.cif",
+      "temperature_K": 298.0,
+      "pressure_Pa": 101325.0,
+      "NH3_uptake_mol_kg": 1.5261339559,
+      "NH3_uptake_mmol_g": 1.5261339559,
+      "NH3_uptake_mg_g": 25.991587402932897,
+      "NH3_heat_of_adsorption_kcal_mol": 4.71987238
+    }
+  },
+  {
+    "uid": "sample_6",
+    "info": "atomic overlap detected",
+    "adsorption_info": null
+  },
+  {
+    "uid": "sample_8",
+    "info": "success",
+    "adsorption_info": {
+      "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_optimized_5.0/relaxed/sample_8.cif",
+      "temperature_K": 298.0,
+      "pressure_Pa": 101325.0,
+      "NH3_uptake_mol_kg": 2.1445891182,
+      "NH3_uptake_mmol_g": 2.1445891182,
+      "NH3_uptake_mg_g": 36.524497272064195,
+      "NH3_heat_of_adsorption_kcal_mol": 5.514408759999999
+    }
+  },
+  {
+    "uid": "sample_2",
+    "info": "success",
+    "adsorption_info": {
+      "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_optimized_5.0/relaxed/sample_2.cif",
+      "temperature_K": 298.0,
+      "pressure_Pa": 101325.0,
+      "NH3_uptake_mol_kg": 5.5340930145,
+      "NH3_uptake_mmol_g": 5.5340930145,
+      "NH3_uptake_mg_g": 94.2511381299495,
+      "NH3_heat_of_adsorption_kcal_mol": 6.725271189999999
+    }
+  },
+  {
+    "uid": "sample_2",
+    "info": "success",
+    "adsorption_info": {
+      "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_optimized_5.0/relaxed/sample_2.cif",
+      "temperature_K": 298.0,
+      "pressure_Pa": 101325.0,
+      "NH3_uptake_mol_kg": 5.6088025299,
+      "NH3_uptake_mmol_g": 5.6088025299,
+      "NH3_uptake_mg_g": 95.5235158867269,
+      "NH3_heat_of_adsorption_kcal_mol": 6.887470929999999
+    }
+  }
+]

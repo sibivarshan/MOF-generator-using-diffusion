@@ -1,0 +1,50 @@
+{
+  "sample_2_relaxed": {
+    "NH3_uptake_mol_kg": 2.4227163256,
+    "NH3_uptake_mol_kg_error": 0.2899975793,
+    "NH3_uptake_mmol_g": 2.4227163256,
+    "NH3_uptake_mg_g": 41.260215746,
+    "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_2_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_8_relaxed": {
+    "NH3_uptake_mol_kg": 2.7125643868,
+    "NH3_uptake_mol_kg_error": 0.1545842387,
+    "NH3_uptake_mmol_g": 2.7125643868,
+    "NH3_uptake_mg_g": 46.1964905433,
+    "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_8_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_5_relaxed": {
+    "NH3_uptake_mol_kg": 8.1316225081,
+    "NH3_uptake_mol_kg_error": 0.5901257913,
+    "NH3_uptake_mmol_g": 8.1316225081,
+    "NH3_uptake_mg_g": 138.4860850212,
+    "file": "/home/sibivarshan_m7/MOFDiff/MOFDiff/results/nh3_target_12.0mmol/relaxed/sample_5_relaxed.cif",
+    "temperature_K": 298,
+    "pressure_Pa": 101325
+  },
+  "sample_9_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_12_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_10_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_13_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_1_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_0_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  },
+  "sample_7_relaxed": {
+    "error": "Command '['/home/sibivarshan_m7/gcmc_tools/raspa_install/bin/simulate', 'simulation.input']' timed out after 1200 seconds"
+  }
+}
