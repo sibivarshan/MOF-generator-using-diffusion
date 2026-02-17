@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-02-17T04:44:55.947836",
+  "target_nh3_mmol_g": 5.0,
+  "n_samples_generated": 10,
+  "n_assembled": 4,
+  "n_relaxed": 4,
+  "optimization": {
+    "predicted_nh3": [
+      4.9998674392700195,
+      4.999785423278809,
+      4.9996490478515625,
+      4.999663829803467,
+      4.999669075012207,
+      4.999628067016602,
+      4.999513149261475,
+      4.999450206756592,
+      4.999454498291016,
+      4.9994049072265625
+    ],
+    "uncertainty": [
+      1.8815841674804688,
+      1.9617277383804321,
+      2.0813591480255127,
+      1.6158506870269775,
+      1.6810741424560547,
+      2.0417892932891846,
+      1.9763429164886475,
+      1.830275535583496,
+      1.8473063707351685,
+      2.039065361022949
+    ]
+  },
+  "pipeline": [
+    "mofdiff/nh3_optimizer (latent optimization)",
+    "mofdiff/scripts/sample.py (diffusion sampling with optimized z)",
+    "mofdiff/scripts/assemble.py (structure assembly)",
+    "mofdiff/scripts/uff_relax.py (LAMMPS UFF relaxation)",
+    "mofdiff/scripts/gcmc_nh3_screen.py (RASPA2 GCMC)"
+  ],
+  "gcmc_results": {
+    "n_total": 8,
+    "n_successful": 6,
+    "best_structure": "sample_2",
+    "best_nh3_mmol_g": 5.6088025299,
+    "mean_nh3_mmol_g": 3.08650593925,
+    "all_uptakes": {
+      "sample_8": 2.1445891182,
+      "sample_3": 1.5261339559,
+      "sample_2": 5.6088025299
+    }
+  }
+}
